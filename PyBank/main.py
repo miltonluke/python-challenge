@@ -23,14 +23,11 @@ greatest_net_decrease = ["", 0]
 with open(csvPath, encoding="UTF-8") as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
 
-
     # Skip the header row
     header = next(reader)
     
     # Extract first row to avoid appending to net_change_list
     startingProfitLoss = 1088983    
-
-    # Track the total and net change
    
     # Process each row of data
     for row in reader:       
@@ -58,7 +55,6 @@ with open(csvPath, encoding="UTF-8") as csvfile:
             greatest_net_decrease[0] = row[0]
             greatest_net_decrease[1] = netchange
 
-
 # Calculate the average net change across the months
 net_avg = (sum(net_change_list) - startingProfitLoss) / (len(month_of_change)-1)
 
@@ -72,7 +68,6 @@ output_summary = (
     f"Greatest Increase in Profits: {greatest_net_increase[0]} (${greatest_net_increase[1]})\n"
     f"Greatest Decrease in Profits: {greatest_net_decrease[0]} (${greatest_net_decrease[1]})"
 )
-
 
 # Print the output
 print(output_summary)
